@@ -10,18 +10,12 @@ require('dotenv').config()
 const hostname = process.env.APP_HOST
 const port = process.env.APP_PORT
 const app = express()
-
+const productos = [] //simulando la base de datos mysql
 
 //middlewares
 app.use((req, res, next) =>
 {
-    req.mysqlOptions = {
-        host: process.env.MYSQL_HOST,
-        port: process.env.MYSQL_PORT,
-        user: process.env.MYSQL_USER,
-        password: process.env.MYSQL_PASSWORD,
-        database: process.env.MYSQL_DB_NAME,
-    }
+    req.productos = productos //simulando la base de datos mysql
     next()
 })
 app.use(morgan('dev'))
